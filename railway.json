@@ -1,0 +1,14 @@
+{
+    "build": {
+      "builder": "NIXPACKS"
+    },
+    "deploy": {
+      "startCommand": "python check_and_notify.py"
+    },
+    "scheduledTasks": [
+      {
+        "command": "python check_and_notify.py",
+        "schedule": "*/10 * * * *"
+      }
+    ]
+  }
