@@ -2,7 +2,7 @@ import os
 import requests
 
 # Internal Railway URL for your Django server
-RAILWAY_PRIVATE_DOMAIN = os.getenv("RAILWAY_PRIVATE_DOMAIN", "django-server.railway.internal")
+RAILWAY_PRIVATE_DOMAIN = os.getenv("SERVER_PRIVATE_DOMAIN", "django-server.railway.internal")
 PORT = os.getenv("PORT", "8000")  # Default to 8000 if PORT is not set
 DJANGO_SERVER_URL = f"http://{RAILWAY_PRIVATE_DOMAIN}:{PORT}/unread-message-notifications/"
 
