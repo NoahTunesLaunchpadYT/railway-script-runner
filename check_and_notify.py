@@ -2,9 +2,10 @@ import os
 import requests
 
 # Internal Railway URL for your Django server
-DJANGO_SERVER_URL = os.getenv("DJANGO_SERVER_URL", "http://django-server.railway.internal/check-and-notify/")
+RAILWAY_PRIVATE_DOMAIN = os.getenv("RAILWAY_PRIVATE_DOMAIN", "django-server.railway.internal")
+DJANGO_SERVER_URL = f"https://{RAILWAY_PRIVATE_DOMAIN}/unread-message-notifications/"
 
-def trigger_check_and_notify():
+def trigger_unread_message_notifications():
     try:
         # Send a POST request to the Django server
         response = requests.post(DJANGO_SERVER_URL)
@@ -13,7 +14,7 @@ def trigger_check_and_notify():
         # Print the response from the server
         print("Response from Django server:", response.json())
     except requests.exceptions.RequestException as e:
-        print("Failed to trigger check_and_notify:", e)
+        print("Failed to trigger unread_message_notifications:", e)
 
 if __name__ == "__main__":
-    trigger_check_and_notify()
+    trigger_unread_message_notifications()
